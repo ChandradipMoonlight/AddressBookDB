@@ -26,3 +26,35 @@ mysql> SELECT DATABASE();
 +---------------------+
 1 row in set (0.00 sec)
 
+UC-2-Create table for address book
+
+ CREATE TABLE address_book
+    -> (
+    -> Id                       INT unsigned NOT NULL AUTO_INCREMENT,
+    -> First_Name               VARCHAR(100) NOT NULL,
+    -> Last_Name                VARCHAR(100) NOT NULL,
+    -> Address                  VARCHAR(250) NOT NULL,
+    -> City                     VARCHAR(100) NOT NULL,
+    -> States                   VARCHAR(100) NOT NULL,
+    -> Zip                      INT(12) NOT NULL,
+    -> Phone_Number             INT(15) NOT NULL,
+    -> Email                    VARCHAR(150) NOT NULL,
+    -> PRIMARY KEY              (Id)
+    -> );
+
+mysql> DESCRIBE address_book;
++--------------+--------------+------+-----+---------+----------------+
+| Field        | Type         | Null | Key | Default | Extra          |
++--------------+--------------+------+-----+---------+----------------+
+| Id           | int unsigned | NO   | PRI | NULL    | auto_increment |
+| First_Name   | varchar(100) | NO   |     | NULL    |                |
+| Last_Name    | varchar(100) | NO   |     | NULL    |                |
+| Address      | varchar(250) | NO   |     | NULL    |                |
+| City         | varchar(100) | NO   |     | NULL    |                |
+| States       | varchar(100) | NO   |     | NULL    |                |
+| Zip          | int          | NO   |     | NULL    |                |
+| Phone_Number | int          | NO   |     | NULL    |                |
+| Email        | varchar(150) | NO   |     | NULL    |                |
++--------------+--------------+------+-----+---------+----------------+
+9 rows in set (0.02 sec)
+
