@@ -135,5 +135,53 @@ select * from address_book;
 +----+------------+-----------+--------------+-------------+--------------+--------+--------------+--------------------+
 1 row in set (0.00 sec)
 
+# UC-7-Ability to understand size of address_book by City or States.
+
+mysql> SELECT COUNT(States) FROM address_book;
++---------------+
+| COUNT(States) |
++---------------+
+|             3 |
++---------------+
+1 row in set (0.02 sec)
+
+mysql> SELECT COUNT(City) FROM address_book;
++-------------+
+| COUNT(City) |
++-------------+
+|           3 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT COUNT(City) FROM address_book GROUP BY City;
++-------------+
+| COUNT(City) |
++-------------+
+|           1 |
+|           1 |
+|           1 |
++-------------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT City, COUNT(City) FROM address_book GROUP BY City;
++-------------+-------------+
+| City        | COUNT(City) |
++-------------+-------------+
+| Golden City |           1 |
+| Mumbai      |           1 |
+| Guargon     |           1 |
++-------------+-------------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT States, COUNT(States) FROM address_book GROUP BY States;
++--------------+---------------+
+| States       | COUNT(States) |
++--------------+---------------+
+| GreaterState |             1 |
+| Maharashtra  |             1 |
+| Haryana      |             1 |
++--------------+---------------+
+3 rows in set (0.00 sec)
+
 
 
