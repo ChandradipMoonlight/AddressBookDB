@@ -282,3 +282,21 @@ mysql> SELECT type, COUNT(type) FROM address_book GROUP BY type;
 
 mysql>
 
+#UC-11-Ability to add person to both Friend and Family.
+
+mysql> INSERT address_book (first_name, last_name, address, city, states, zip, phone_number, Email, name, type) VALUES
+    -> ('Atik', 'Singh', 'Dharavi', 'Mumbai', 'Maharashtra', '530044','9494631888', 'mlk@mln.com',NULL, 'Family');
+Query OK, 1 row affected (0.03 sec)
+
+mysql> SELECT * FROM ADDRESS_BOOK;
++----+------------+-----------+---------------+-------------+--------------+--------+--------------+--------------------+------+--------+
+| Id | First_Name | Last_Name | Address       | City        | States       | Zip    | Phone_Number | Email              | name | type   |
++----+------------+-----------+---------------+-------------+--------------+--------+--------------+--------------------+------+--------+
+|  1 | Moonlight  | Sunlight  | Royal Colony  | Golden City | GreaterState | 001002 | 9145489092   | moonlight@lamp.com | NULL | Friend |
+|  2 | Priyansh   | Kumar     | Malabar       | Mumbai      | Maharashtra  | 530066 | 9882763875   | pl@pl.com          | NULL | Friend |
+|  4 | Rahul      | Singh     | Guargon Sec-1 | Guargon     | Haryana      | 530044 | 9494691888   | mln@mln.com        | NULL | Friend |
+|  5 | Kalyan     | Kumar     | Andheri       | Mumbai      | Maharashtra  | 530066 | 9882763845   | pl@p.com           | NULL | Friend |
+|  6 | Atik       | Singh     | Dharavi       | Mumbai      | Maharashtra  | 530044 | 9494631888   | mlk@mln.com        | NULL | Friend |
+|  7 | Atik       | Singh     | Dharavi       | Mumbai      | Maharashtra  | 530044 | 9494631888   | mlk@mln.com        | NULL | Family |
++----+------------+-----------+---------------+-------------+--------------+--------+--------------+--------------------+------+--------+
+6 rows in set (0.01 sec)
