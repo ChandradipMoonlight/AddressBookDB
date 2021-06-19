@@ -1,5 +1,5 @@
 
-UC-1-ability to create address book database.
+# UC-1-ability to create address book database.
 
 mysql> SHOW DATABASES;
 +---------------------+
@@ -26,7 +26,7 @@ mysql> SELECT DATABASE();
 +---------------------+
 1 row in set (0.00 sec)
 
-UC-2-Create table for address book
+# UC-2-Create table for address book
 
  CREATE TABLE address_book
     -> (
@@ -57,4 +57,28 @@ mysql> DESCRIBE address_book;
 | Email        | varchar(150) | NO   |     | NULL    |                |
 +--------------+--------------+------+-----+---------+----------------+
 9 rows in set (0.02 sec)
+
+# UC-3-Insert new contacts in address_book.
+
+INSERT INTO address_book
+    -> (First_Name, Last_Name, Address, City, States, Zip, Phone_Number, Email) VALUES
+    -> ('Moonlight', 'Sunlight', 'Royal Colony', 'Golden City', 'GreaterState', '001002', '00112345678', 'moonlight@lamp.com');
+Query OK, 1 row affected (0.03 sec)
+
+ INSERT INTO address_book
+    -> (First_Name, Last_Name, Address, City, States, Zip, Phone_Number, Email) VALUES
+    -> ('Priyansh', 'Kumar', 'Malabar', 'Mumbai', 'Maharashtra', '530066','9882763875', 'pl@pl.com'),
+    -> ('Rahul', 'Singh', 'Guargon Sec-1', 'Guargon', 'Haryana', '530044','9494691888', 'mln@mln.com');
+Query OK, 2 rows affected (0.03 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+ SELECT * FROM address_book;
++----+------------+-----------+---------------+-------------+--------------+--------+--------------+--------------------+
+| Id | First_Name | Last_Name | Address       | City        | States       | Zip    | Phone_Number | Email              |
++----+------------+-----------+---------------+-------------+--------------+--------+--------------+--------------------+
+|  1 | Moonlight  | Sunlight  | Royal Colony  | Golden City | GreaterState | 001002 | 00112345678  | moonlight@lamp.com |
+|  2 | Priyansh   | Kumar     | Malabar       | Mumbai      | Maharashtra  | 530066 | 9882763875   | pl@pl.com          |
+|  3 | Rahul      | Singh     | Guargon Sec-1 | Guargon     | Haryana      | 530044 | 9494691888   | mln@mln.com        |
++----+------------+-----------+---------------+-------------+--------------+--------+--------------+--------------------+
+3 rows in set (0.00 sec)
 
