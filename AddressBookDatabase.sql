@@ -245,7 +245,7 @@ Records: 0  Duplicates: 0  Warnings: 0
 mysql> SELECT * FROM address_book;
 +----+------------+-----------+---------------+-------------+--------------+--------+--------------+--------------------+------+--------+
 | Id | First_Name | Last_Name | Address       | City        | States       | Zip    | Phone_Number | Email              | name | type   |
-+----+------------+-----------+---------------+-------------+--------------+--------+--------------+--------------------+------+--------+
++----+------------+-----------+---------------+-------------+--------------+------00--+--------------+--------------------+------+--------+
 |  1 | Moonlight  | Sunlight  | Royal Colony  | Golden City | GreaterState | 001002 | 9145489092   | moonlight@lamp.com | NULL | Friend |
 |  2 | Priyansh   | Kumar     | Malabar       | Mumbai      | Maharashtra  | 530066 | 9882763875   | pl@pl.com          | NULL | Friend |
 |  4 | Rahul      | Singh     | Guargon Sec-1 | Guargon     | Haryana      | 530044 | 9494691888   | mln@mln.com        | NULL | Friend |
@@ -253,3 +253,32 @@ mysql> SELECT * FROM address_book;
 |  6 | Atik       | Singh     | Dharavi       | Mumbai      | Maharashtra  | 530044 | 9494631888   | mlk@mln.com        | NULL | Friend |
 +----+------------+-----------+---------------+-------------+--------------+--------+--------------+--------------------+------+--------+
 5 rows in set (0.00 sec)
+
+#UC-10-Ability to get number of contact persons i.e. count by type
+
+mysql> SELECT COUNT(type) FROM address_book;
++-------------+
+| COUNT(type) |
++-------------+
+|           5 |
++-------------+
+1 row in set (0.01 sec)
+
+mysql> SELECT COUNT(type) FROM address_book GROUP BY type;
++-------------+
+| COUNT(type) |
++-------------+
+|           5 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT type, COUNT(type) FROM address_book GROUP BY type;
++--------+-------------+
+| type   | COUNT(type) |
++--------+-------------+
+| Friend |           5 |
++--------+-------------+
+1 row in set (0.00 sec)
+
+mysql>
+
