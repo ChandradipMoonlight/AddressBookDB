@@ -115,5 +115,25 @@ select * from address_book;
 +----+------------+-----------+--------------+-------------+--------------+--------+--------------+--------------------+
 2 rows in set (0.01 sec)
 
+#UC-6-retrieve the Persons details belonging from states and City.
+
+ SELECT * FROM address_book
+    -> WHERE States = 'Maharashtra';
++----+------------+-----------+---------+--------+-------------+--------+--------------+-----------+
+| Id | First_Name | Last_Name | Address | City   | States      | Zip    | Phone_Number | Email     |
++----+------------+-----------+---------+--------+-------------+--------+--------------+-----------+
+|  2 | Priyansh   | Kumar     | Malabar | Mumbai | Maharashtra | 530066 | 9882763875   | pl@pl.com |
++----+------------+-----------+---------+--------+-------------+--------+--------------+-----------+
+1 row in set (0.01 sec)
+
+ SELECT * FROM address_book
+    -> WHERE City = 'Golden City';
++----+------------+-----------+--------------+-------------+--------------+--------+--------------+--------------------+
+| Id | First_Name | Last_Name | Address      | City        | States       | Zip    | Phone_Number | Email              |
++----+------------+-----------+--------------+-------------+--------------+--------+--------------+--------------------+
+|  1 | Moonlight  | Sunlight  | Royal Colony | Golden City | GreaterState | 001002 | 9145489092   | moonlight@lamp.com |
++----+------------+-----------+--------------+-------------+--------------+--------+--------------+--------------------+
+1 row in set (0.00 sec)
+
 
 
