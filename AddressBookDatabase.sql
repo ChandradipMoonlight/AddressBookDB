@@ -184,4 +184,50 @@ mysql> SELECT States, COUNT(States) FROM address_book GROUP BY States;
 3 rows in set (0.00 sec)
 
 
+#UC-8-Ability to retrieve entries sorted alphabetically by Person’s name for a given city.
+
+
+mysql> INSERT INTO address_book
+    -> (First_Name, Last_Name, Address, City, States, Zip, Phone_Number, Email) VALUES
+    -> ('Kalyan', 'Kumar', 'Andheri', 'Mumbai', 'Maharashtra', '530066','9882763845', 'pl@p.com'),
+    -> ('Atik', 'Singh', 'Dharavi', 'Mumbai', 'Maharashtra', '530044','9494631888', 'mlk@mln.com');
+Query OK, 2 rows affected (0.02 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM address_book;
++----+------------+-----------+---------------+-------------+--------------+--------+--------------+--------------------+
+| Id | First_Name | Last_Name | Address       | City        | States       | Zip    | Phone_Number | Email              |
++----+------------+-----------+---------------+-------------+--------------+--------+--------------+--------------------+
+|  1 | Moonlight  | Sunlight  | Royal Colony  | Golden City | GreaterState | 001002 | 9145489092   | moonlight@lamp.com |
+|  2 | Priyansh   | Kumar     | Malabar       | Mumbai      | Maharashtra  | 530066 | 9882763875   | pl@pl.com          |
+|  4 | Rahul      | Singh     | Guargon Sec-1 | Guargon     | Haryana      | 530044 | 9494691888   | mln@mln.com        |
+|  5 | Kalyan     | Kumar     | Andheri       | Mumbai      | Maharashtra  | 530066 | 9882763845   | pl@p.com           |
+|  6 | Atik       | Singh     | Dharavi       | Mumbai      | Maharashtra  | 530044 | 9494631888   | mlk@mln.com        |
++----+------------+-----------+---------------+-------------+--------------+--------+--------------+--------------------+
+5 rows in set (0.01 sec)
+
+mysql> SELECT * FROM address_book
+    -> WHERE city = 'Mumbai'
+    -> ORDER BY first_name ASC;
++----+------------+-----------+---------+--------+-------------+--------+--------------+-------------+
+| Id | First_Name | Last_Name | Address | City   | States      | Zip    | Phone_Number | Email       |
++----+------------+-----------+---------+--------+-------------+--------+--------------+-------------+
+|  6 | Atik       | Singh     | Dharavi | Mumbai | Maharashtra | 530044 | 9494631888   | mlk@mln.com |
+|  5 | Kalyan     | Kumar     | Andheri | Mumbai | Maharashtra | 530066 | 9882763845   | pl@p.com    |
+|  2 | Priyansh   | Kumar     | Malabar | Mumbai | Maharashtra | 530066 | 9882763875   | pl@pl.com   |
++----+------------+-----------+---------+--------+-------------+--------+--------------+-------------+
+3 rows in set (0.01 sec)
+
+mysql> SELECT * FROM address_book
+    -> WHERE States = 'Maharashtra'
+    -> ORDER BY first_name ASC;
++----+------------+-----------+---------+--------+-------------+--------+--------------+-------------+
+| Id | First_Name | Last_Name | Address | City   | States      | Zip    | Phone_Number | Email       |
++----+------------+-----------+---------+--------+-------------+--------+--------------+-------------+
+|  6 | Atik       | Singh     | Dharavi | Mumbai | Maharashtra | 530044 | 9494631888   | mlk@mln.com |
+|  5 | Kalyan     | Kumar     | Andheri | Mumbai | Maharashtra | 530066 | 9882763845   | pl@p.com    |
+|  2 | Priyansh   | Kumar     | Malabar | Mumbai | Maharashtra | 530066 | 9882763875   | pl@pl.com   |
++----+------------+-----------+---------+--------+-------------+--------+--------------+-------------+
+3 rows in set (0.00 sec)
+
 
