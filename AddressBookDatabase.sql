@@ -100,4 +100,20 @@ mysql> SELECT * FROM address_book;
 +----+------------+-----------+---------------+-------------+--------------+--------+--------------+--------------------+
 3 rows in set (0.01 sec)
 
+#UC-5-delet contact by usging First Name.
+
+ Delete from address_book
+    -> where First_Name = 'Rahul';
+Query OK, 1 row affected (0.02 sec)
+
+select * from address_book;
++----+------------+-----------+--------------+-------------+--------------+--------+--------------+--------------------+
+| Id | First_Name | Last_Name | Address      | City        | States       | Zip    | Phone_Number | Email              |
++----+------------+-----------+--------------+-------------+--------------+--------+--------------+--------------------+
+|  1 | Moonlight  | Sunlight  | Royal Colony | Golden City | GreaterState | 001002 | 9145489092   | moonlight@lamp.com |
+|  2 | Priyansh   | Kumar     | Malabar      | Mumbai      | Maharashtra  | 530066 | 9882763875   | pl@pl.com          |
++----+------------+-----------+--------------+-------------+--------------+--------+--------------+--------------------+
+2 rows in set (0.01 sec)
+
+
 
