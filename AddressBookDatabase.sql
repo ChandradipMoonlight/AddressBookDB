@@ -82,3 +82,22 @@ Records: 2  Duplicates: 0  Warnings: 0
 +----+------------+-----------+---------------+-------------+--------------+--------+--------------+--------------------+
 3 rows in set (0.00 sec)
 
+# UC-4-update existing contact by using name.
+
+mysql> UPDATE address_book
+    -> SET Phone_Number = '9145489092'
+    -> WHERE First_Name = 'Moonlight';
+Query OK, 1 row affected (0.02 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT * FROM address_book;
++----+------------+-----------+---------------+-------------+--------------+--------+--------------+--------------------+
+| Id | First_Name | Last_Name | Address       | City        | States       | Zip    | Phone_Number | Email              |
++----+------------+-----------+---------------+-------------+--------------+--------+--------------+--------------------+
+|  1 | Moonlight  | Sunlight  | Royal Colony  | Golden City | GreaterState | 001002 | 9145489092   | moonlight@lamp.com |
+|  2 | Priyansh   | Kumar     | Malabar       | Mumbai      | Maharashtra  | 530066 | 9882763875   | pl@pl.com          |
+|  3 | Rahul      | Singh     | Guargon Sec-1 | Guargon     | Haryana      | 530044 | 9494691888   | mln@mln.com        |
++----+------------+-----------+---------------+-------------+--------------+--------+--------------+--------------------+
+3 rows in set (0.01 sec)
+
+
